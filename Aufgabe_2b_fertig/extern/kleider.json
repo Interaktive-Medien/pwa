@@ -1,0 +1,14 @@
+[
+  {"id":"1", "name":"Jeans", "bild":"jeans.png"},
+  {"id":"2", "name":"T-Shirt", "bild":"tshirt.png"},
+  {"id":"3", "name":"Kleid", "bild":"kleid.png"},
+  {"id":"4", "name":"Badeanzug", "bild":"badeanzug.png"},
+  {"id":"5", "name":"Socken", "bild":"socken.png"},
+  {"id":"6", "name":"Turnschuh", "bild":"turnschuh.png"},
+  {"id":"7", "name":"Wanderschuh", "bild":"wanderschuh.png"},
+  {"id":"8", "name":"Flipflop", "bild":"flipflop.png"},
+  {"id":"9", "name":"High Heels", "bild":"highheels.png"},
+  {"id":"10", "name":"Basecap", "bild":"basecap.png"},
+  {"id":"11", "name":"Schal", "bild":"schal.png"},
+  {"id":"12", "name":"Handschuhe", "bild":"handschuhe.png"}
+]

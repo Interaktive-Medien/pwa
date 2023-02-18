@@ -1,0 +1,29 @@
+html {
+  font-family: Helvetica, sans-serif;
+  text-align: center;
+  width: 100%;
+}
+
+main {
+  max-width: 960px;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+#fruechteContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+article {
+  width: 200px;
+  border: 2px solid grey;
+  border-radius: 20px;
+  margin: 10px;
+}
+
+img {
+  max-width: 100%;
+}

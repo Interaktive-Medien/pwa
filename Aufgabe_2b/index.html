@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kleider</title>
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+
+    <!-- #1: Manifest. Dieses muss im Root liegen -->
+    <link rel="manifest" href="manifest.json">
+    <!-- Ende #1: Manifest -->
+
+    <!-- #3: Hintergrundfarbe für iOS -->
+    <meta name="theme-color" content="#61b2e4">
+    <!-- Ende #3: Hintergrundfarbe für iOS -->
+
+    <!-- #4: Apple-Touch-Icons für iOS-->
+    <link rel="apple-touch-icon" sizes="16x16" href="appIcons/ios/16.png">
+    <link rel="apple-touch-icon" sizes="20x20" href="appIcons/ios/20.png">
+    <link rel="apple-touch-icon" sizes="29x29" href="appIcons/ios/29.png">
+    <link rel="apple-touch-icon" sizes="32x32" href="appIcons/ios/32.png">
+    <link rel="apple-touch-icon" sizes="40x40" href="appIcons/ios/40.png">
+    <link rel="apple-touch-icon" sizes="50x50" href="appIcons/ios/50.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="appIcons/ios/57.png">
+    <link rel="apple-touch-icon" sizes="58x58" href="appIcons/ios/58.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="appIcons/ios/60.png">
+    <link rel="apple-touch-icon" sizes="64x64" href="appIcons/ios/64.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="appIcons/ios/72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="appIcons/ios/76.png">
+    <link rel="apple-touch-icon" sizes="80x80" href="appIcons/ios/80.png">
+    <link rel="apple-touch-icon" sizes="87x87" href="appIcons/ios/87.png">
+    <link rel="apple-touch-icon" sizes="100x100" href="appIcons/ios/100.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="appIcons/ios/114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="appIcons/ios/120.png">
+    <link rel="apple-touch-icon" sizes="128x128" href="appIcons/ios/128.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="appIcons/ios/144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="appIcons/ios/152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="appIcons/ios/167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="appIcons/ios/180.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="appIcons/ios/192.png">
+    <link rel="apple-touch-icon" sizes="256x256" href="appIcons/ios/256.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="appIcons/ios/512.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="appIcons/ios/1024.png">
+    <!-- Ende #4: Apple-Touch-Icons für iOS-->
+
+  </head>
+
+  <body>
+
+    <main>
+
+      <!-- #5: Platzhalter für Install-Button -->
+      <button type="button" id="pwa-install-button">PWA installieren</button>
+      <!-- Ende #5: Platzhalter für Install-Button -->
+
+      <nav>
+        <a href="hut.html"><h3>Link zur Seite hut.html</h3></a>
+      </nav>
+
+      <h1>Kleider</h1>
+      <div id="kleiderContainer">
+      </div>
+
+    </main>
+
+    <!-- Start #6: Script für Install-Button--> <!-- Code von https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Add_to_home_screen -->
+    <script>
+    let deferredPrompt;
+    const addBtn = document.querySelector("#pwa-install-button");
+    addBtn.style.display = "none";
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      // Prevent Chrome 67 and earlier from automatically showing the prompt
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      deferredPrompt = e;
+      // Update UI to notify the user they can add to home screen
+      addBtn.style.display = "block";
+
+      addBtn.addEventListener("click", (e) => {
+        // hide our user interface that shows our A2HS button
+        addBtn.style.display = "none";
+        // Show the prompt
+        deferredPrompt.prompt();
+        // Wait for the user to respond to the prompt
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === "accepted") {
+            console.log("User accepted the A2HS prompt");
+          } else {
+            console.log("User dismissed the A2HS prompt");
+          }
+          deferredPrompt = null;
+        });
+      });
+    });
+    </script>
+    <!-- Ende #6: Script für Install-Button-->
+
+    <!-- #2: Service-Worker registrieren -->
+    <script>
+      if (typeof navigator.serviceWorker !== 'undefined') {
+        navigator.serviceWorker.register('pwabuilder-sw.js')
+      }
+    </script>
+    <!-- ENDE #2: Service-Worker registrieren -->
+
+    <script src="js/control.js"></script>
+  </body>
+</html>
