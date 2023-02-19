@@ -145,6 +145,24 @@ window.addEventListener("beforeinstallprompt", (e) => {
 
 --------------
 
+#--------------Fetch-Funktion--------------
+//Fetch-Funktion
+fetch('beispiel.json')
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    // Hier die data verarbeiten
+  })
+  .catch(function(error) {
+    console.log('Error: ' + error.message);
+  });
+
+
+
+
+--------------
+
 #--------------Kamera anzeigen--------------
 
 
